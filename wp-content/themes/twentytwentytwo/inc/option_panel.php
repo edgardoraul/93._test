@@ -85,7 +85,7 @@ add_action('admin_init', 'custom_theme_settings_init');
 function custom_theme_logo_callback() {
 	$logo = get_option('custom_theme_logo');
 	?>
-	<input type="text" name="custom_theme_logo" id="custom_theme_logo" value="<?php echo esc_url($logo); ?>" />
+	<input type="text" size="40" name="custom_theme_logo" id="custom_theme_logo" value="<?php echo esc_url($logo); ?>" />
 	<input type="button" class="button-primary" value="<?php _e('Subir logotipo', '');?>" id="upload_logo_button" />
 	<input type="button" class="button button-secondary" value="<?php _e('Borrar logotipo', '');?>" id="remove_logo_button" />
 	<br /><br /><img src="<?php echo esc_url($logo); ?>" id="logo_preview" style="max-width: 150px; box-shadow: 0px 0px 5px 1px black; display: <?php echo esc_url($logo) ? 'block' : 'none'; ?>;">
@@ -96,7 +96,7 @@ function custom_theme_logo_callback() {
 function custom_theme_meta_keywords_callback() {
 	$keywords = get_option('custom_theme_meta_keywords');
 	?>
-	<input type="text" name="custom_theme_meta_keywords" value="<?php echo esc_attr($keywords); ?>" placeholder="<?php _e('Separadas por comas', '');?>" />
+	<input type="text" size="40" name="custom_theme_meta_keywords" value="<?php echo esc_attr($keywords); ?>" placeholder="<?php _e('Separadas por comas', '');?>" />
 	<?php
 }
 
@@ -104,7 +104,7 @@ function custom_theme_meta_keywords_callback() {
 function custom_theme_contact_email_callback() {
 	$email = get_option('custom_theme_contact_email');
 	?>
-	<input type="email" name="custom_theme_contact_email" value="<?php echo esc_attr($email); ?>" placeholder="ejemplo@yo.com" />
+	<input type="email" name="custom_theme_contact_email" value="<?php echo esc_attr($email); ?>" placeholder="ejemplo@yo.com" size="40" />
 	<?php
 }
 
@@ -112,7 +112,7 @@ function custom_theme_contact_email_callback() {
 function custom_theme_address_callback() {
 	$address = get_option('custom_theme_address');
 	?>
-	<textarea name="custom_theme_address" rows="4" placeholder="<?php _e('Calle, número, torre, piso, departamento, pueblo, ciudad, provincia, código postal', '');?>"><?php echo esc_attr($address); ?></textarea>
+	<textarea cols="40" name="custom_theme_address" rows="4" placeholder="<?php _e('Calle, número, torre, piso, departamento, pueblo, ciudad, provincia, código postal', '');?>"><?php echo esc_attr($address); ?></textarea>
 	<?php
 }
 
@@ -120,7 +120,7 @@ function custom_theme_address_callback() {
 function custom_theme_google_maps_callback() {
 	$map = get_option('custom_theme_google_maps');
 	?>
-	<textarea name="custom_theme_google_maps" rows="4" placeholder="<?php _e('Código embebido de Google Maps', '');?>"><?php echo esc_textarea($map); ?></textarea>
+	<textarea cols="40" name="custom_theme_google_maps" rows="4" placeholder="<?php _e('Código embebido de Google Maps', '');?>"><?php echo esc_textarea($map); ?></textarea>
 	<?php
 }
 
@@ -128,7 +128,7 @@ function custom_theme_google_maps_callback() {
 function custom_theme_phone_callback() {
 	$phone = get_option('custom_theme_phone');
 	?>
-	<input type="tel" name="custom_theme_phone" value="<?php echo esc_attr($phone); ?>" placeholder="0351-4882213" />
+	<input type="tel" size="40" name="custom_theme_phone" value="<?php echo esc_attr($phone); ?>" placeholder="0351-4882213" />
 	<?php
 }
 
@@ -136,7 +136,7 @@ function custom_theme_phone_callback() {
 function custom_theme_whatsapp_callback() {
 	$whatsapp = get_option('custom_theme_whatsapp');
 	?>
-	<input type="tel" name="custom_theme_whatsapp" value="<?php echo esc_attr($whatsapp); ?>" placeholder="5493514882213" />
+	<input type="tel" size="40" name="custom_theme_whatsapp" value="<?php echo esc_attr($whatsapp); ?>" placeholder="5493514882213" />
 	<?php
 }
 
@@ -144,7 +144,7 @@ function custom_theme_whatsapp_callback() {
 function custom_theme_instagram_callback() {
 	$instagram = get_option('custom_theme_instagram');
 	?>
-	<input type="text" name="custom_theme_instagram" value="<?php echo esc_attr($instagram); ?>" placeholder="@usuario" />
+	<input type="text" size="40" name="custom_theme_instagram" value="<?php echo esc_attr($instagram); ?>" placeholder="@usuario" />
 	<?php
 }
 
@@ -152,7 +152,7 @@ function custom_theme_instagram_callback() {
 function custom_theme_facebook_callback() {
 	$facebook = get_option('custom_theme_facebook');
 	?>
-	<input type="url" name="custom_theme_facebook" value="<?php echo esc_url($facebook); ?>" placeholder="https://facebook.com/tu_usuario" />
+	<input type="url" size="40" name="custom_theme_facebook" value="<?php echo esc_url($facebook); ?>" placeholder="https://facebook.com/tu_usuario" />
 	<?php
 }
 
@@ -160,7 +160,7 @@ function custom_theme_facebook_callback() {
 function custom_theme_x_callback() {
 	$x = get_option('custom_theme_x');
 	?>
-	<input type="text" name="custom_theme_x" value="<?php echo esc_attr($x); ?>" placeholder="@usuario" />
+	<input type="text" size="40" name="custom_theme_x" value="<?php echo esc_attr($x); ?>" placeholder="@usuario" />
 	<?php
 }
 
@@ -168,7 +168,7 @@ function custom_theme_x_callback() {
 function custom_theme_google_analytics_callback() {
 	$analytics_code = get_option('custom_theme_google_analytics');
 	?>
-	<textarea name="custom_theme_google_analytics" rows="4" col="12"><?php echo esc_textarea($analytics_code); ?></textarea>
+	<textarea cols="40" name="custom_theme_google_analytics" rows="4"><?php echo esc_textarea($analytics_code); ?></textarea>
 	<?php
 }
 
@@ -176,7 +176,7 @@ function custom_theme_google_analytics_callback() {
 function custom_theme_facebook_pixel_callback() {
 	$pixel_code = get_option('custom_theme_facebook_pixel');
 	?>
-	<textarea name="custom_theme_facebook_pixel" rows="4"><?php echo esc_textarea($pixel_code); ?></textarea>
+	<textarea cols="40" name="custom_theme_facebook_pixel" rows="4"><?php echo esc_textarea($pixel_code); ?></textarea>
 	<?php
 }
 
@@ -184,7 +184,7 @@ function custom_theme_facebook_pixel_callback() {
 function custom_theme_custom_tracking_callback() {
 	$custom_tracking_code = get_option('custom_theme_custom_tracking');
 	?>
-	<textarea name="custom_theme_custom_tracking" rows="4"><?php echo esc_textarea($custom_tracking_code); ?></textarea>
+	<textarea cols="40" name="custom_theme_custom_tracking" rows="4"><?php echo esc_textarea($custom_tracking_code); ?></textarea>
 	<?php
 }
 
