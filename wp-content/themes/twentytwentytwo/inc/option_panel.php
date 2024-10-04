@@ -1,11 +1,12 @@
 <?php
+// Se define el texto de internalización
+define('TEXT_DOMAIN', 'nombre_plantilla'); 
 
 /* 1. Panel de Opciones */
-
 function custom_theme_options_page() {
 	add_menu_page(
-		'Opciones del tema',
-		'Opciones del tema',
+		__('Opciones del tema', TEXT_DOMAIN),
+		__('Opciones del tema', TEXT_DOMAIN),
 		'edit_others_posts',  // Cambiado para permitir acceso a editores y superiores
 		'custom-theme-options',
 		'custom_theme_options_callback',
@@ -14,7 +15,6 @@ function custom_theme_options_page() {
 	);
 }
 add_action('admin_menu', 'custom_theme_options_page');
-
 
 
 /* 2. Formulario para las Opciones */
@@ -59,12 +59,12 @@ function custom_theme_settings_init() {
 	);
 
 	// Añadir campos
-	add_settings_field('custom_theme_logo', __("Logotipo", ""), 'custom_theme_logo_callback', 'custom-theme-options', 'custom_theme_options_section');
+	add_settings_field('custom_theme_logo', __("Logotipo", TEXT_DOMAIN), 'custom_theme_logo_callback', 'custom-theme-options', 'custom_theme_options_section');
 	add_settings_field('custom_theme_meta_keywords', 'Meta Keywords', 'custom_theme_meta_keywords_callback', 'custom-theme-options', 'custom_theme_options_section');
-	add_settings_field('custom_theme_contact_email', __("Email de Contacto", ""), 'custom_theme_contact_email_callback', 'custom-theme-options', 'custom_theme_options_section');
-	add_settings_field('custom_theme_address', __("Dirección", ""), 'custom_theme_address_callback', 'custom-theme-options', 'custom_theme_options_section');
-	add_settings_field('custom_theme_google_maps', 'Ubicación (Google Maps)', 'custom_theme_google_maps_callback', 'custom-theme-options', 'custom_theme_options_section');
-	add_settings_field('custom_theme_phone', __("Teléfono Fijo", ""), 'custom_theme_phone_callback', 'custom-theme-options', 'custom_theme_options_section');
+	add_settings_field('custom_theme_contact_email', __("Email de Contacto", TEXT_DOMAIN), 'custom_theme_contact_email_callback', 'custom-theme-options', 'custom_theme_options_section');
+	add_settings_field('custom_theme_address', __("Dirección", TEXT_DOMAIN), 'custom_theme_address_callback', 'custom-theme-options', 'custom_theme_options_section');
+	add_settings_field('custom_theme_google_maps', __("Ubicación (Google Maps)", TEXT_DOMAIN), 'custom_theme_google_maps_callback', 'custom-theme-options', 'custom_theme_options_section');
+	add_settings_field('custom_theme_phone', __("Teléfono Fijo", TEXT_DOMAIN), 'custom_theme_phone_callback', 'custom-theme-options', 'custom_theme_options_section');
 	add_settings_field('custom_theme_whatsapp', 'WhatsApp', 'custom_theme_whatsapp_callback', 'custom-theme-options', 'custom_theme_options_section');
 
 	// Redes sociales desglosadas
@@ -73,9 +73,9 @@ function custom_theme_settings_init() {
 	add_settings_field('custom_theme_x', 'X (Twitter)', 'custom_theme_x_callback', 'custom-theme-options', 'custom_theme_options_section');
 
 	// Tracking Codes
-	add_settings_field('custom_theme_google_analytics', __("Código de Google Analytics", ""), 'custom_theme_google_analytics_callback', 'custom-theme-options', 'custom_theme_options_section');
-	add_settings_field('custom_theme_facebook_pixel', __("Código de Facebook Pixel", ""), 'custom_theme_facebook_pixel_callback', 'custom-theme-options', 'custom_theme_options_section');
-	add_settings_field('custom_theme_custom_tracking', __("Código de Tracking Personalizado", ""), 'custom_theme_custom_tracking_callback', 'custom-theme-options', 'custom_theme_options_section');
+	add_settings_field('custom_theme_google_analytics', __("Código de Google Analytics", TEXT_DOMAIN), 'custom_theme_google_analytics_callback', 'custom-theme-options', 'custom_theme_options_section');
+	add_settings_field('custom_theme_facebook_pixel', __("Código de Facebook Pixel", TEXT_DOMAIN), 'custom_theme_facebook_pixel_callback', 'custom-theme-options', 'custom_theme_options_section');
+	add_settings_field('custom_theme_custom_tracking', __("Código de Tracking Personalizado", TEXT_DOMAIN), 'custom_theme_custom_tracking_callback', 'custom-theme-options', 'custom_theme_options_section');
 }
 add_action('admin_init', 'custom_theme_settings_init');
 
@@ -86,8 +86,8 @@ function custom_theme_logo_callback() {
 	$logo = get_option('custom_theme_logo');
 	?>
 	<input type="text" size="40" name="custom_theme_logo" id="custom_theme_logo" value="<?php echo esc_url($logo); ?>" />
-	<input type="button" class="button-primary" value="<?php _e('Subir logotipo', '');?>" id="upload_logo_button" />
-	<input type="button" class="button button-secondary" value="<?php _e('Borrar logotipo', '');?>" id="remove_logo_button" />
+	<input type="button" class="button-primary" value="<?php _e('Subir logotipo', TEXT_DOMAIN);?>" id="upload_logo_button" />
+	<input type="button" class="button button-secondary" value="<?php _e('Borrar logotipo', TEXT_DOMAIN);?>" id="remove_logo_button" />
 	<br /><br /><img src="<?php echo esc_url($logo); ?>" id="logo_preview" style="max-width: 150px; box-shadow: 0px 0px 5px 1px black; display: <?php echo esc_url($logo) ? 'block' : 'none'; ?>;">
 	<?php
 }
@@ -96,7 +96,7 @@ function custom_theme_logo_callback() {
 function custom_theme_meta_keywords_callback() {
 	$keywords = get_option('custom_theme_meta_keywords');
 	?>
-	<input type="text" size="40" name="custom_theme_meta_keywords" value="<?php echo esc_attr($keywords); ?>" placeholder="<?php _e('Separadas por comas', '');?>" />
+	<input type="text" size="40" name="custom_theme_meta_keywords" value="<?php echo esc_attr($keywords); ?>" placeholder="<?php _e('Separadas por comas', TEXT_DOMAIN);?>" />
 	<?php
 }
 
@@ -112,7 +112,7 @@ function custom_theme_contact_email_callback() {
 function custom_theme_address_callback() {
 	$address = get_option('custom_theme_address');
 	?>
-	<textarea cols="40" name="custom_theme_address" rows="4" placeholder="<?php _e('Calle, número, torre, piso, departamento, pueblo, ciudad, provincia, código postal', '');?>"><?php echo esc_attr($address); ?></textarea>
+	<textarea cols="40" name="custom_theme_address" rows="4" placeholder="<?php _e('Calle, número, torre, piso, departamento, pueblo, ciudad, provincia, código postal', TEXT_DOMAIN);?>"><?php echo esc_attr($address); ?></textarea>
 	<?php
 }
 
@@ -120,7 +120,7 @@ function custom_theme_address_callback() {
 function custom_theme_google_maps_callback() {
 	$map = get_option('custom_theme_google_maps');
 	?>
-	<textarea cols="40" name="custom_theme_google_maps" rows="4" placeholder="<?php _e('Código embebido de Google Maps', '');?>"><?php echo esc_textarea($map); ?></textarea>
+	<textarea cols="40" name="custom_theme_google_maps" rows="4" placeholder="<?php _e('Código embebido de Google Maps', TEXT_DOMAIN);?>"><?php echo esc_textarea($map); ?></textarea>
 	<?php
 }
 
@@ -232,3 +232,62 @@ function custom_theme_add_tracking_scripts() {
 	}
 }
 add_action('wp_footer', 'custom_theme_add_tracking_scripts');
+
+
+/* 7. Mostrar las Meta Keywords en el <head> */
+function custom_theme_add_meta_keywords() {
+    $meta_keywords = get_option('custom_theme_meta_keywords');
+    
+    if (!empty($meta_keywords)) {
+        echo '<meta name="keywords" content="' . esc_attr($meta_keywords) . '">' . "\n";
+    }
+}
+add_action('wp_head', 'custom_theme_add_meta_keywords');
+
+
+/* 8. Mostrar el Mapa de Google en el Frontend */
+function custom_theme_display_google_maps() {
+    $google_maps = get_option('custom_theme_google_maps');
+
+    if (!empty($google_maps)) {
+        return '<div class="google-map">' . wp_kses_post($google_maps) . '</div>';
+    }
+
+    return ''; // Si no hay mapa, no muestra nada.
+}
+
+// Registrar el shortcode para Google Maps
+function custom_theme_register_google_maps_shortcode() {
+    add_shortcode('google_maps', 'custom_theme_display_google_maps');
+}
+add_action('init', 'custom_theme_register_google_maps_shortcode');
+
+/* 9. Función para Redes Sociales con Íconos de Dashicons */
+function custom_theme_display_social_links() {
+    $instagram = get_option('custom_theme_instagram');
+    $facebook = get_option('custom_theme_facebook');
+    $x = get_option('custom_theme_x');
+
+    // Redes sociales con íconos Dashicons
+    echo '<div class="social-links">';
+    
+    if (!empty($instagram)) {
+        echo '<a href="' . esc_url($instagram) . '" target="_blank">
+            <span class="dashicons dashicons-instagram"></span> Instagram
+        </a>';
+    }
+    
+    if (!empty($facebook)) {
+        echo '<a href="' . esc_url($facebook) . '" target="_blank">
+            <span class="dashicons dashicons-facebook"></span> Facebook
+        </a>';
+    }
+    
+    if (!empty($x)) {
+        echo '<a href="' . esc_url($x) . '" target="_blank">
+            <span class="dashicons dashicons-twitter"></span> X
+        </a>';
+    }
+    
+    echo '</div>';
+}
