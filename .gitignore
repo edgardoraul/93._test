@@ -19,13 +19,16 @@
 /xmlrpc.php
 *.json
 *.html
+*.md
+*.zip
+*.rar
 
 
 # Configuration
 wp-config.php
 
 # Uploads
-/wp-content/uploads/
+# /wp-content/uploads/
 
 # Log files
 *.log
