@@ -250,7 +250,7 @@ function custom_theme_display_google_maps() {
     $google_maps = get_option('custom_theme_google_maps');
 
     if (!empty($google_maps)) {
-        return '<div class="google-map">' . wp_kses_post($google_maps) . '</div>';
+        return '<div class="google-map">' . $google_maps . '</div>';
     }
 
     return ''; // Si no hay mapa, no muestra nada.
