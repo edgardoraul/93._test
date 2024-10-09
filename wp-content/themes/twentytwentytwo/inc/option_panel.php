@@ -1,6 +1,5 @@
 <?php
-// Se define el texto de internalización
-define('TEXT_DOMAIN', 'nombre_plantilla'); 
+
 
 /* 1. Panel de Opciones */
 function custom_theme_options_page() {
