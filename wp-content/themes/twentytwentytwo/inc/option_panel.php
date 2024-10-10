@@ -1,5 +1,6 @@
 <?php
-
+// Desactivador
+require_once "desactivador.php";
 
 /* 1. Panel de Opciones */
 function custom_theme_options_page() {
